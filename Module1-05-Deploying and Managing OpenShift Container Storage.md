@@ -1135,7 +1135,7 @@ oc get machinesets -n openshift-machine-api | egrep 'NAME|workerocs'
 	cluster-2f83-d7fvm-workerocs-us-east-2b   1         1         1       1           3h42m
 	cluster-2f83-d7fvm-workerocs-us-east-2c   1         1         1       1           3h42m
 ```
-Let’s scale the workerocs machinesets up with this command:
+Let’s scale the worker ocs machinesets up with this command:
 ```
 oc get machinesets -n openshift-machine-api -o name | grep workerocs | xargs -n1 -t oc scale
 -n openshift-machine-api --replicas=2
