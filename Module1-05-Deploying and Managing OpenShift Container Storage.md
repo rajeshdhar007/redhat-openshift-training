@@ -1,4 +1,4 @@
-In this lab you will learn how to: 
+# In this lab you will learn how to: 
 * Configure and deploy containerized Ceph and NooBaa
 * Validate deployment of containerized Ceph and NooBaa
 * Deploy the Rook toolbox to run Ceph and RADOS commands
@@ -34,7 +34,7 @@ Create new MachineSets that will run storage-specific nodes for your OCP cluster
 	
 [~] $ oc get machineset -n openshift-machine-api -l machine.openshift.io/cluster-api-machine
 -role=workerocs -o name | xargs oc patch -n openshift-machine-api --type='json' -p '[{"op":
-"add", "path": "/spec/template/spec/metadata/labels", "value":{"node-role.kubernetes.io/work
+"add", "path": "/spec/template/spec/metadata/labels", "value":{"node-role.kubernetes.io/workgit@github.com:rajeshdhar007/redhat-openshift-training.gitk
 er":"", "role":"storage-node", "cluster.ocs.openshift.io/openshift-storage":""} }]'
 	machineset.machine.openshift.io/cluster-2f83-d7fvm-workerocs-us-east-2a patched
 	machineset.machine.openshift.io/cluster-2f83-d7fvm-workerocs-us-east-2b patched
@@ -196,7 +196,7 @@ oc -n openshift-storage get sc
 ```
 <img src=/images/mod01/009.png>
 
-Using the Rook-Ceph toolbox to check on the Ceph backing storage
+# Using the Rook-Ceph toolbox to check on the Ceph backing storage
 Since the Rook-Ceph toolbox is not shipped with OCS, we need to deploy it manually.
 ```
 oc patch OCSInitialization ocsinit -n openshift-storage --type json --patch  '[{ "op": "replace", "path": "/spec/enableCephTools", "value": true }]'
@@ -315,8 +315,9 @@ oc new-app -f /opt/app-root/src/support/ocslab_rails-app.yaml -p STORAGE_CLASS=o
 	Now using project "my-database-app" on server "https://172.30.0.1:443".
 ```	
 	You can add applications to this project with the 'new-app' command. For example, try:
-```	
-	    oc new-app django-psql-example
+
+```
+oc new-app django-psql-example
 ```	
 	to build a new example application in Python. Or use kubectl to deploy a simple Kubernetes application:
 ```	
@@ -332,30 +333,32 @@ An example Rails application with a PostgreSQL database. For more information ab
 The following service(s) have been created in your project: rails-pgsql-persistent, postgresql.
 	
 For more information about using this template, including OpenShift considerations, see ```https://github.com/sclorg/rails-ex/blob/master/README.md.```
-	     * With parameters:
-        * Name=rails-pgsql-persistent
-        * Namespace=openshift
-        * Memory Limit=512Mi
-        * Memory Limit (PostgreSQL)=512Mi
-        * Volume Capacity=5Gi
-        * Volume Storage Class=ocs-storagecluster-ceph-rbd
-        * Git Repository URL=https://github.com/sclorg/rails-ex.git
-        * Git Reference=
-        * Context Directory=
-        * Application Hostname=
-        * GitHub Webhook Secret=vEsN617Gge1BK7yyeT7KueUBaGb6sQbNOYtc5WiY # generated
-        * Secret Key=ywrp1j3g87ju77fajsfg6jbbrn16ui5gkupvas8ynlvwrq7ue2gkfk168fedcqmvuqrljffg5204vj1b6aa2xqte0686j4580jqiagyyukv8fpad4cgkvuj17krjsen # generated
-	      * Application Username=openshift
-	      * Application Password=secret
-	      * Rails Environment=production
-	      * Database Service Name=postgresql
-	      * Database Username=user013 # generated
-	      * Database Password=k7D2RMN8 # generated
-	      * Database Name=root
-	      * Maximum Database Connections=100
-	      * Shared Buffer Amount=12MB
-	      * Custom RubyGems Mirror URL=
-	
+
+With parameters:
+```
+	* Name=rails-pgsql-persistent
+	* Namespace=openshift
+	* Memory Limit=512Mi
+	* Memory Limit (PostgreSQL)=512Mi
+	* Volume Capacity=5Gi
+	* Volume Storage Class=ocs-storagecluster-ceph-rbd
+	* Git Repository URL=https://github.com/sclorg/rails-ex.git
+	* Git Reference=
+	* Context Directory=
+	* Application Hostname=
+	* GitHub Webhook Secret=vEsN617Gge1BK7yyeT7KueUBaGb6sQbNOYtc5WiY # generated
+	* Secret Key=ywrp1j3g87ju77fajsfg6jbbrn16ui5gkupvas8ynlvwrq7ue2gkfk168fedcqmvuqrljffg5204vj1b6aa2xqte0686j4580jqiagyyukv8fpad4cgkvuj17krjsen # generated
+	* Application Username=openshift
+	* Application Password=secret
+	* Rails Environment=production
+	* Database Service Name=postgresql
+	* Database Username=user013 # generated
+	* Database Password=k7D2RMN8 # generated
+	* Database Name=root
+	* Maximum Database Connections=100
+	* Shared Buffer Amount=12MB
+	* Custom RubyGems Mirror URL=
+
   --> Creating resources ...
 
       secret "rails-pgsql-persistent" created
@@ -410,11 +413,11 @@ Open a browser and navigate to:
 ```
 http://rails-pgsql-persistent-my-database-app.apps.cluster-2f83.2f83.sandbox603.opentlc.com/articles
 ```
-<img src=/images/mod01/010.png>
-```
+<img src=/images/mod01/011.png>
+<img src=/images/mod01/012.png>
+
 username: openshift
-password: <secret>
-```
+password: secret
 
 Now take another look at the Ceph ocs-storagecluster-cephblockpool created by the ocs-storagecluster-ceph-rbd Storage Class. Log into the toolbox pod again.
 ```
@@ -449,7 +452,7 @@ sh-4.4# rbd -p ocs-storagecluster-cephblockpool ls | grep vol
 	csi-vol-06eaf0a3-3bdb-11eb-af7f-0a580a800605
 	csi-vol-97ba3ed4-3bd1-11eb-af7f-0a580a800605
 ```
-# Matching PVs to RBDs
+## Matching PVs to RBDs
 ```
 oc get pv -o 'custom-columns=NAME:.spec.claimRef.name,PVNAME:.metadata.name,STORAGECLASS:.spec.storageClassName,VOLUMEHANDLE:.spec.csi.volumeHandle'
 	NAME                           PVNAME                                     STORAGECLASS                  VOLUMEHANDLE
@@ -490,16 +493,19 @@ oc rsh -n openshift-storage $TOOLS_POD rbd -p ocs-storagecluster-cephblockpool i
 ## Create a new project:
 ```
 oc new-project my-shared-storage
-	Now using project "my-shared-storage" on server "https://172.30.0.1:443".
+```
+
+Now using project "my-shared-storage" on server "https://172.30.0.1:443".
+You can add applications to this project with the 'new-app' command. For example, try:
+
 ```	
-	You can add applications to this project with the 'new-app' command. For example, try:
-```	
-	    oc new-app django-psql-example
-```	
-	to build a new example application in Python. Or use kubectl to deploy a simple Kubernetes
-	application:
-```	
-	    kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
+oc new-app django-psql-example
+```
+to build a new example application in Python. Or use kubectl to deploy a simple Kubernetes
+application:
+
+```
+kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
 ```
 Next deploy the example PHP application called file-uploader:
 ```
@@ -536,8 +542,9 @@ oc new-app openshift/php:7.2~https://github.com/christianh814/openshift-php-uplo
 	the commands below:
 	     'oc expose svc/file-uploader'
 	    Run 'oc status' to view your app.
-
+```
 Watch and wait for the application to be deployed:
+```
 oc logs -f bc/file-uploader -n my-shared-storage
 	Cloning "https://github.com/christianh814/openshift-php-upload-demo" ...
 	        Commit: 288eda3dff43b02f7f7b6b6b6f93396ffdf34cb2 (trying to modularize)
@@ -645,7 +652,7 @@ oc get pvc -n my-shared-storage
 oc get route file-uploader -n my-shared-storage -o jsonpath --template="{.spec.host}"
 	file-uploader-my-shared-storage.apps.cluster-2f83.2f83.sandbox603.opentlc.com
 ```
-
+<img src=/images/mod01/013.png>
 
 Discover what Pods and PVCs are installed in the openshift-monitoring namespace
 ```
@@ -723,7 +730,7 @@ oc -n openshift-monitoring get configmap cluster-monitoring-config -o yaml | mor
 	  uid: af399e55-19ca-4d87-8868-4ece3cd97cb8
 
 oc get pods,pvc -n openshift-monitoring
-NAME                                               READY   STATUS    RESTARTS   AGE
+	NAME                                               READY   STATUS    RESTARTS   AGE
 	pod/alertmanager-main-0                            3/3     Running   0          3h47m
 	pod/alertmanager-main-1                            3/3     Running   0          3h48m
 	pod/alertmanager-main-2                            3/3     Running   0          3h48m
@@ -751,8 +758,9 @@ NAME                                               READY   STATUS    RESTARTS   
 	pod/telemeter-client-568bb4569b-dvqhc              3/3     Running   0          3h48m
 	pod/thanos-querier-65466f7b48-dtdfj                4/4     Running   0          28h
 	pod/thanos-querier-65466f7b48-tx5cv                4/4     Running   0          28h
-
+```
 Checking on the MCG status
+```
 noobaa status -n openshift-storage
 	INFO[0000] CLI version: 2.3.0
 	INFO[0000] noobaa-image: noobaa/noobaa-core:5.5.0
@@ -863,11 +871,12 @@ noobaa status -n openshift-storage
 	#-----------------#
 	
 	No OBCs found.
+```
+<img src=/images/mod01/014.png>
 
-
-Creating an Object Bucket Claim
-Creating an OBC is as simple as using the NooBaa CLI:
-	
+# Creating an Object Bucket Claim
+## Creating an OBC is as simple as using the NooBaa CLI:
+```	
 noobaa obc create test21obc -n openshift-storage
 	INFO[0000] ✅ Exists: StorageClass "openshift-storage.noobaa.io"
 	INFO[0000] ✅ Created: ObjectBucketClaim "test21obc"
@@ -967,8 +976,9 @@ NAME        STORAGE-CLASS                 PHASE   AGE
 	  storageClassName: openshift-storage.noobaa.io
 	status:
 	  phase: Bound
-
+```
 Inside of your openshift-storage namespace, you will now find the ConfigMap and the Secret to use this OBC
+```
 oc get -n openshift-storage secret test21obc -o yaml
 	apiVersion: v1
 	data:
@@ -1027,7 +1037,7 @@ oc get -n openshift-storage cm test21obc -o yaml
 	  selfLink: /api/v1/namespaces/openshift-storage/configmaps/test21obc
 	  uid: 3e820cff-9181-4902-9bbf-995938fe29c5
 ```
-Using an OBC inside a container
+## Using an OBC inside a container
 we apply this YAML file
 ```
 apiVersion: v1
@@ -1150,6 +1160,7 @@ oc get nodes -l cluster.ocs.openshift.io/openshift-storage -o jsonpath='{range .
 	ip-10-0-170-7.us-east-2.compute.internal
 ```
 # Add storage capacity
+<img src=/images/mod01/015.png>
 ## Verify new storage
 ```
 TOOLS_POD=$(oc get pods -n openshift-storage -l app=rook-ceph-tools -o name)
@@ -1181,7 +1192,7 @@ sh-4.4# ceph status
 	  io:
 	    client:   1.2 KiB/s rd, 45 KiB/s wr, 2 op/s rd, 3 op/s wr
 ```
-# Check the topology of your cluster:
+## Check the topology of your cluster:
 ```
 sh-4.4# ceph osd crush tree
 	ID  CLASS WEIGHT  TYPE NAME
@@ -1198,13 +1209,13 @@ sh-4.4# ceph osd crush tree
 	  0   ssd 2.00000                 osd.0
 ```
 # Monitoring the OCS environment
+<img src=/images/mod01/016.png>
 
 Prometheus : Alert Manager UI:
+<img src=/images/mod01/017.png>
 
-
-Metrics:
-
-
+### Metrics:
+<img src=/images/mod01/018.png>
 Using must-gather
 Must-gather is a tool for collecting data about the current’y running Openshift cluster
 ```
