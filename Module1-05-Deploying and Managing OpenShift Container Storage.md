@@ -1216,6 +1216,7 @@ Prometheus : Alert Manager UI:
 
 ### Metrics:
 <img src=/images/mod01/018.png>
+
 Using must-gather
 Must-gather is a tool for collecting data about the current’y running Openshift cluster
 
@@ -1296,5 +1297,4 @@ oc adm must-gather
 	…
 	…
 	…
-	
 ```
