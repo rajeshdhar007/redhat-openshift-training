@@ -1,4 +1,6 @@
 _** Work In Progress **_
+Some of the formatting may appear weird on GitHub. These documents were created using the extensions available for VSCode (*Markdown All in One* and *Markdown Preview Enhanced*) and appear to work perfectly in the editor
+
 # RedHat OpenShift Training
 This repo contains notes based on training received from RedHat
 
