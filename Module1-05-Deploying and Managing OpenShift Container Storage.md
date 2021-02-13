@@ -410,12 +410,11 @@ Open a browser and navigate to:
 ```
 http://rails-pgsql-persistent-my-database-app.apps.cluster-2f83.2f83.sandbox603.opentlc.com/articles
 ```
-
 <img src=/images/mod01/010.png>
-
+```
 username: openshift
 password: <secret>
-
+```
 
 Now take another look at the Ceph ocs-storagecluster-cephblockpool created by the ocs-storagecluster-ceph-rbd Storage Class. Log into the toolbox pod again.
 ```
