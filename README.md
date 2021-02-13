@@ -5,8 +5,8 @@ Some of the formatting may appear weird on GitHub. These documents were created 
 # RedHat OpenShift Training
 This repo contains notes based on training received from RedHat
 
-# $Contents$
-## $Module 1$
+# Contents
+## *Module 1*
 ### 01 - Application Management Basics
 ### 02 - Application Storage Basics
 ### 03 - MachineSets, Machines, and Nodes
@@ -19,7 +19,7 @@ This repo contains notes based on training received from RedHat
 ---
 
 
-## $Module 2$
+## *Module 2*
 ### 01 - Debugging | Monitoring | Continuous Delivery
 ### 02 - Debugging 
 ### 03 - Implementing Continuous Delivery
