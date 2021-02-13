@@ -1,4 +1,4 @@
-_* Work In Progress *_
+_** Work In Progress **_
 # RedHat OpenShift Training
 This repo contains notes based on training received from RedHat
 
