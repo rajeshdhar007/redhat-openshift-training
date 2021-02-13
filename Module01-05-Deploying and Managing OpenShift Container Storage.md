@@ -1,4 +1,5 @@
-# In this lab you will learn how to: 
+# Deploying and Managing OpenShift Container Storage
+## In this lab you will learn how to: 
 * Configure and deploy containerized Ceph and NooBaa
 * Validate deployment of containerized Ceph and NooBaa
 * Deploy the Rook toolbox to run Ceph and RADOS commands
