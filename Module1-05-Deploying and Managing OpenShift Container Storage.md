@@ -1160,8 +1160,11 @@ oc get nodes -l cluster.ocs.openshift.io/openshift-storage -o jsonpath='{range .
 	ip-10-0-170-7.us-east-2.compute.internal
 ```
 # Add storage capacity
+
 <img src=/images/mod01/015.png>
+
 ## Verify new storage
+
 ```
 TOOLS_POD=$(oc get pods -n openshift-storage -l app=rook-ceph-tools -o name)
 oc rsh -n openshift-storage $TOOLS_POD
@@ -1209,12 +1212,15 @@ sh-4.4# ceph osd crush tree
 	  0   ssd 2.00000                 osd.0
 ```
 # Monitoring the OCS environment
+
 <img src=/images/mod01/016.png>
 
 Prometheus : Alert Manager UI:
+
 <img src=/images/mod01/017.png>
 
 ### Metrics:
+
 <img src=/images/mod01/018.png>
 
 Using must-gather
