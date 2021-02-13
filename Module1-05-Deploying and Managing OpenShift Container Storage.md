@@ -109,12 +109,9 @@ Add the monitoring label to this namespace. This is required to get prometheus m
 oc label namespace openshift-storage "openshift.io/cluster-monitoring=true"
 	namespace/openshift-storage labeled
 ```
-
-
-
-
-
-
+<img src=/images/mod01/001.png>
+<img src=/images/mod01/002.png>
+<img src=/images/mod01/003.png>
 
 ```
 watch oc -n openshift-storage get csv
@@ -134,15 +131,11 @@ oc -n openshift-storage get pods
 	ocs-operator-5df89454f7-7nbw2         1/1     Running   0          11m
 	rook-ceph-operator-689fd87b48-jgc65   1/1     Running   0          11m
 ```
-
-
-
-
-
-
-
-
-
+<img src=/images/mod01/004.png>
+<img src=/images/mod01/005.png>
+<img src=/images/mod01/006.png>
+<img src=/images/mod01/007.png>
+<img src=/images/mod01/008.png>
 
 ```
 oc -n openshift-storage get pods
@@ -201,7 +194,7 @@ oc -n openshift-storage get sc
 	ocs-storagecluster-cephfs     openshift-storage.cephfs.csi.ceph.com   62m
 	openshift-storage.noobaa.io   openshift-storage.noobaa.io/obc         55m
 ```
-
+<img src=/images/mod01/009.png>
 
 Using the Rook-Ceph toolbox to check on the Ceph backing storage
 Since the Rook-Ceph toolbox is not shipped with OCS, we need to deploy it manually.
@@ -313,7 +306,7 @@ sh-4.4# ceph versions
 	    }
 	}
 ```
-Create a new OCP application deployment using Ceph RBD volume
+# Create a new OCP application deployment using Ceph RBD volume
 ```
 oc new-project my-database-app
 oc new-app -f /opt/app-root/src/support/ocslab_rails-app.yaml -p STORAGE_CLASS=ocs-storagecluster-ceph-rbd -p VOLUME_CAPACITY=5Gi
@@ -414,8 +407,11 @@ oc get route -n my-database-app
 	rails-pgsql-persistent   rails-pgsql-persistent-my-database-app.apps.cluster-2f83.2f83.sandbox603.opentlc.com          rails-pgsql-persistent   <all>                 None
 ```
 Open a browser and navigate to:
-```http://rails-pgsql-persistent-my-database-app.apps.cluster-2f83.2f83.sandbox603.opentlc.com/articles```
+```
+http://rails-pgsql-persistent-my-database-app.apps.cluster-2f83.2f83.sandbox603.opentlc.com/articles
+```
 
+<img src=/images/mod01/010.png>
 
 username: openshift
 password: <secret>
