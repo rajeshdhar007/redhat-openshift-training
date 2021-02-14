@@ -1,4 +1,5 @@
 # Introduction to Ceph
+
 How to deploy and manage OpenShift Container Storage (OCS). In this module you will be using OpenShift Container Platform (OCP) 4.x and the OCS operator to deploy Ceph and the Multi-Cloud-Gateway (MCG) as a persistent storage solution for OCP workloads.
 
 <img src="images/mod01/mod01-05-01-01.png">

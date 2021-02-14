@@ -1,4 +1,7 @@
-# OpenShift components that fall into the infrastructure categorization include:
+# Infrastructure Nodes and Operators
+
+## OpenShift components that fall into the infrastructure categorization include:
+
 * kubernetes and OpenShift control plane services ("masters")
 * router
 * container image registry

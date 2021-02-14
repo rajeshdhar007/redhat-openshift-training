@@ -1,4 +1,5 @@
 # OpenShift Log Aggregation
+
 An extremely important function of OpenShift is collecting and aggregating logs from the environments and the application pods it is running. OpenShift ships with an elastic log aggregation solution: EFK. (ElasticSearch, Fluentd and Kibana)
 
 ## Deploying OpenShift Logging

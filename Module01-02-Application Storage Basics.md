@@ -1,4 +1,5 @@
 # Adding Persistent Volume Claims
+
 Here’s how you would instruct OpenShift to create a PersistentVolume object, which represents external, persistent storage, and have it mounted inside the container’s filesystem:
 ```
 oc set volume dc/mapit --add --name=mapit-storage -t pvc --claim-mode=ReadWriteOnce --claim-size=1Gi --claim-name=mapit-storage --mount-path=/app-storage
