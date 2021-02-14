@@ -19,7 +19,7 @@ This repo contains notes based on training received from RedHat
 ---
 
 ## *Module 2*
-### 01 - Debugging 
-### 02 - Implementing Continuous Delivery
-### 03 - Debugging Applications
-### 04 - Application Monitoring
+### 01 - [Debugging](./Module02-01-Debugging.md)
+### 02 - [Implementing Continuous Delivery](./Module02-02-Implementing%20Continuous%20Delivery.md)
+### 03 - [Debugging Applications](./Module02-03-Debugging%20Applications.md)
+### 04 - [Application Monitoring](./Module02-04-Application%20Monitoring.md)
