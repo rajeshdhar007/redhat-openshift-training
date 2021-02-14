@@ -1,5 +1,8 @@
 _** Work In Progress **_
 
+## _Declaration_
+Materials present in this repo are collected items are part of training materials provided by RedHat. This is in no way intended to reproduce RedHat's work in anyway and doesn't intend to replace the same. The only purpose these serve is a means of recollection of the training received by _Rajesh Dhar_ for reference purposes.
+
 Some of the formatting may appear weird on GitHub. These documents were created using the extensions available for VSCode (*Markdown All in One* and *Markdown Preview Enhanced*) and appear to work perfectly in the editor
 
 # RedHat OpenShift Training
