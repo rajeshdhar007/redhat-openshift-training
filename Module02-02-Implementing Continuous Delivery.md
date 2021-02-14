@@ -252,4 +252,3 @@ http://www-user24-coolstore-prod.apps.cluster-c4fe.c4fe.sandbox1777.opentlc.com/
 ## The FLOW:
 
 <img src="./images/mod02/mod02-02-030.png">
-s
